@@ -6,39 +6,39 @@
 
 ### 1. Не надо использовать короткую запись
 Несмотря на то, что большинство браузеров смогут воспринять следующую запись:
-	if(someVariableExists)  
-	   x = false
+	>if(someVariableExists)  
+	>   x = false
 Пожалуйста, не делайте так. Отсутствие фигурных скобок создает огромную путаницу и делает код нечитабельным. Поэтому остановимся на такой записи:
-	if(someVariableExists) {  
-	   x = false;  
-	}
+	>if(someVariableExists) {  
+	>   x = false;  
+	>}
 
 ## 2. Скрипты - вниз!
 Когда браузер грузит скрипт, он не продолжит рендеринг пока весь файл не будет загружен. Таким образом пользователю придется ждать дольше.
 Для ускорения загрузки страницы, вам стоит перенести скрипты вниз поставив их перед закрывающимся тегом body.
 Пример:
-	<p>Карл у Клары украл кораллы.</p>  
-	<script type="text/javascript" src="path/to/file.js"></script>  
-	<script type="text/javascript" src="path/to/anotherFile.js"></script>  
-	</body>  
-	</html>
+	><p>Карл у Клары украл кораллы.</p>  
+	><script type="text/javascript" src="path/to/file.js"></script>  
+	><script type="text/javascript" src="path/to/anotherFile.js"></script>  
+	></body>  
+	></html>
 
 ### 3. Поменьше глобальных переменных
 Это нужно для того, чтобы уменьшить риск нежелательного взаимодействия с "с другими приложениями, виджетами или библиотеками". (с) Douglas Crockford
 Поэтому вместо этого: 
-	var name = 'Шерлок';  
-	var lastName = 'Холмс';  
-	  
-	function doSomething() {...}  
-	 
-	console.log(name); // Шерлок -- or window.name  
+	>var name = 'Шерлок';  
+	>var lastName = 'Холмс';  
+	>  
+	>function doSomething() {...}  
+	> 
+	>console.log(name); // Шерлок -- or window.name  
 Лучше сократим число глобальных переменных, записав следующим образом:
-	var DudeNameSpace = {  
-	   name : 'Шерлок',  
-	   lastName : 'Холмс',  
-	   doSomething : function() {...}  
-	}  
-	console.log(DudeNameSpace.name); // Jeffrey  
+	>var DudeNameSpace = {  
+	>   name : 'Шерлок',  
+	>   lastName : 'Холмс',  
+	>   doSomething : function() {...}  
+	>}  
+	>console.log(DudeNameSpace.name); // Jeffrey  
 
 ### 4. === вместо ==
 В случае, если вам нужно провести сравнение двух операндов, лучше использовать === и !==, а не == и !=. Операторы строгого сравнения не позволят появиться ошибке: если операнды   разных типов, то всегда будет возвращаться false.
