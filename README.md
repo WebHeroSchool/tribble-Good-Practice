@@ -81,7 +81,8 @@ o.name = 'Шерлок';
 o.lastName = 'Холмс';  
 o.someFunction = function() {  
   console.log(this.name);  
-}  
+} 
+``` 
 Однако более надежным следует считать объявление с помощью литералов объекта:
 ```
 let o = {  
@@ -124,6 +125,7 @@ let someItem = 'some string';
 function doSomething() {  
   return 'something';  
 }  
+```
 
 ### 9. Много переменных - используем запятую
 Код будет выглядеть чище и элегантнее, когда мы упустим лишние var или let и воспользуемся запятыми.
